@@ -1,0 +1,29 @@
+{/* <body>
+      <div className="product-name text-1">
+        Mono<span>Fusion</span>
+      </div>
+      <div className="program-switch text-1">create</div>
+
+      <div className="panel-container">
+        <div className="panel">
+          <div className="editor-container">
+            <div className="modes text-3">
+              <div className="button">NFT</div>
+              <div className="button">cNFT</div>
+              <div className="button">pNFT</div>
+            </div>
+            <div className="editor">
+              <input type="text" name="title" />
+              <input type="text" name="description" />
+              <div className="add-attributes"></div>
+            </div>
+          </div>
+          <div className="preview">
+            <div className="details"></div>
+            <div className="image"></div>
+          </div>
+        </div>
+      </div>
+
+      <Navbar />
+    </body> */}
