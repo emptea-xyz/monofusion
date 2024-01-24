@@ -13,23 +13,23 @@ BACKDROP GUIDE
 4 = CREATE - ATTRIBUTE EDITOR
 
 */
-export default function Backdrop({ mode, setMode, resetMode }) {
-  const [switchMode, setSwitchMode] = useState(false);
+export default function Backdrop({ modal, setModal, resetModal }) {
+  const [switchModal, setSwitchModal] = useState(false);
 
   const toggleSwitch = () => {
-    if (switchMode != true) {
-      setSwitchMode(true);
+    if (switchModal != true) {
+      setSwitchModal(true);
     } else {
-      setSwitchMode(false);
+      setSwitchModal(false);
     }
   };
   return (
     <AnimatePresence>
-      {mode != 0 && (
+      {modal != 0 && (
         <motion.div
           className="backdrop"
           id="backdrop"
-          onClick={resetMode}
+          onClick={resetModal}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -45,7 +45,7 @@ export default function Backdrop({ mode, setMode, resetMode }) {
               e.stopPropagation();
             }}
           >
-            {mode == 4 && (
+            {modal == 4 && (
               <>
                 <div className="create-attributes">
                   <div className="input">
@@ -56,7 +56,7 @@ export default function Backdrop({ mode, setMode, resetMode }) {
                 </div>
               </>
             )}
-            {mode == 1 && (
+            {modal == 1 && (
               <>
                 <div className="navbar-connector">
                   <div className="icon phantom"></div>
@@ -65,14 +65,14 @@ export default function Backdrop({ mode, setMode, resetMode }) {
                 </div>
               </>
             )}
-            {mode == 2 && (
+            {modal == 2 && (
               <>
                 <div className="navbar-network-manager">
                   <div className="default">
                     <div className="info">use the default network</div>
                     <motion.div
                       className={
-                        switchMode == true ? "switch active" : "switch inactive"
+                        switchModal == true ? "switch active" : "switch inactive"
                       }
                       onClick={toggleSwitch}
                     >
@@ -92,7 +92,7 @@ export default function Backdrop({ mode, setMode, resetMode }) {
                     </div>
                     <div className="form">
                       <input type="text" placeholder="enter RPC URL" />
-                      <motion.div className="submit" onClick={resetMode}>
+                      <motion.div className="submit" onClick={resetModal}>
                         Go
                       </motion.div>
                     </div>
@@ -100,12 +100,12 @@ export default function Backdrop({ mode, setMode, resetMode }) {
                 </div>
               </>
             )}
-            {mode == 3 && (
+            {modal == 3 && (
               <>
                 <div className="navbar-themify">
                   <motion.div
                     className={
-                      switchMode == true ? "switch active" : "switch inactive"
+                      switchModal == true ? "switch active" : "switch inactive"
                     }
                     onClick={toggleSwitch}
                   >

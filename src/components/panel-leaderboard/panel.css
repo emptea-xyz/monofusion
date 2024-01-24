@@ -1,0 +1,52 @@
+.main .panel.leaderboard {
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px;
+  background-color: var(--white-faded-1);
+  /*   border: 1px solid var(--black-faded-1);*/
+  border-radius: 20px;
+
+  backdrop-filter: blur(10px);
+}
+
+.main .panel.leaderboard .filters {
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px;
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+}
+
+.main .panel.leaderboard .filters .rank,
+.main .panel.leaderboard .filters .username,
+.main .panel.leaderboard .filters .wallet,
+.main .panel.leaderboard .filters .points {
+  width: 200px;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  padding: 10px;
+  border: 1px solid var(--black-faded-1);
+  border-radius: 5px;
+
+  font-family: "satoshi-regular";
+}
+
+.main .panel.leaderboard .filters .points {
+  text-align: right;
+}
