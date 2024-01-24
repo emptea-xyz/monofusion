@@ -48,6 +48,23 @@ export default function Home() {
                 <motion.div
                   className="option"
                   onClick={() => {
+                    setPanel(1);
+                  }}
+                >
+                  profile
+                </motion.div>
+                <motion.div
+                  className="option"
+                  onClick={() => {
+                    setPanel(1);
+                  }}
+                >
+                  leaderboard
+                </motion.div>
+                <motion.div className="line"></motion.div>
+                <motion.div
+                  className="option"
+                  onClick={() => {
                     setPanel(0);
                   }}
                 >
@@ -57,20 +74,12 @@ export default function Home() {
                 <motion.div className="option">maintain</motion.div>
                 <motion.div className="option">create single</motion.div>
                 <motion.div className="option">create collection</motion.div>
-                <motion.div
-                  className="option"
-                  onClick={() => {
-                    setPanel(1);
-                  }}
-                >
-                  leaderboard
-                </motion.div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-        {panel==0&&<Create setModal={setModal} />}
-        {panel==1&&<Leaderboad setModal={setModal} />}
+        {panel == 0 && <Create setModal={setModal} />}
+        {panel == 1 && <Leaderboad setModal={setModal} />}
       </motion.div>
       <Backdrop modal={modal} setModal={setModal} resetModal={resetModal} />
       <Navbar setModal={setModal} />

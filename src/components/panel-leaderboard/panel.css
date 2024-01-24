@@ -3,13 +3,14 @@
   height: fit-content;
 
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 10px;
 
   padding: 10px;
   background-color: var(--white-faded-1);
-  /*   border: 1px solid var(--black-faded-1);*/
+  border: 1px solid var(--black-faded-1);
   border-radius: 20px;
 
   backdrop-filter: blur(10px);
@@ -25,6 +26,8 @@
   gap: 10px;
 
   padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   border: 1px solid var(--black-faded-1);
   border-radius: 10px;
 }
@@ -41,12 +44,76 @@
   justify-content: left;
 
   padding: 10px;
-  border: 1px solid var(--black-faded-1);
+  color: var(--black-faded-2);
   border-radius: 5px;
+
+  font-family: "satoshi-regular";
+  cursor: pointer;
+}
+
+.main .panel.leaderboard .filters div:hover {
+  color: var(--black);
+  transition-duration: 0.2s;
+}
+
+.main .panel.leaderboard .filters div:not(:hover) {
+  transition-duration: 0.2s;
+}
+
+.main .panel.leaderboard .filters .points {
+  justify-content: right;
+}
+
+
+.main .panel.leaderboard .items {
+  width: fit-content;
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  padding: 10px;
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+}
+
+.main .panel.leaderboard .items .user {
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px;
+  border-bottom: 1px solid var(--black-faded-1);
+}
+
+.main .panel.leaderboard .items .user .rank,
+.main .panel.leaderboard .items .user .username,
+.main .panel.leaderboard .items .user .wallet,
+.main .panel.leaderboard .items .user .points {
+  width: 200px;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  padding: 10px;
+  color: var(--black);
 
   font-family: "satoshi-regular";
 }
 
-.main .panel.leaderboard .filters .points {
-  text-align: right;
+.main .panel.leaderboard .items .user .username {
+  color: var(--pinot);
+}
+
+.main .panel.leaderboard .items .user .points {
+  justify-content: right;
 }
