@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./backdrop.css";
@@ -11,14 +13,23 @@ BACKDROP GUIDE
 4 = CREATE - ATTRIBUTE EDITOR
 
 */
-export default function Backdrop({ panel, setPanel, resetPanel }) {
+export default function Backdrop({ mode, setMode, resetMode }) {
+  const [switchMode, setSwitchMode] = useState(false);
+
+  const toggleSwitch = () => {
+    if (switchMode != true) {
+      setSwitchMode(true);
+    } else {
+      setSwitchMode(false);
+    }
+  };
   return (
     <AnimatePresence>
-      {panel != 0 && (
+      {mode != 0 && (
         <motion.div
           className="backdrop"
           id="backdrop"
-          onClick={resetPanel}
+          onClick={resetMode}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -34,7 +45,7 @@ export default function Backdrop({ panel, setPanel, resetPanel }) {
               e.stopPropagation();
             }}
           >
-            {panel == 4 && (
+            {mode == 4 && (
               <>
                 <div className="create-attributes">
                   <div className="input">
@@ -45,12 +56,63 @@ export default function Backdrop({ panel, setPanel, resetPanel }) {
                 </div>
               </>
             )}
-            {panel == 1 && (
+            {mode == 1 && (
               <>
                 <div className="navbar-connector">
                   <div className="icon phantom"></div>
                   <div className="icon solflare"></div>
                   <div className="icon backpack"></div>
+                </div>
+              </>
+            )}
+            {mode == 2 && (
+              <>
+                <div className="navbar-network-manager">
+                  <div className="default">
+                    <div className="info">use the default network</div>
+                    <motion.div
+                      className={
+                        switchMode == true ? "switch active" : "switch inactive"
+                      }
+                      onClick={toggleSwitch}
+                    >
+                      <motion.div className="base">
+                        <motion.div className="handle"></motion.div>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                  <div className="line"></div>
+                  <div className="custom">
+                    <div className="info">
+                      use your own RPC for full control. <br />
+                      Don't have one? Get started for free at{" "}
+                      <Link href={"https://helius.dev"} target="blank">
+                        Helius.
+                      </Link>
+                    </div>
+                    <div className="form">
+                      <input type="text" placeholder="enter RPC URL" />
+                      <motion.div className="submit" onClick={resetMode}>
+                        Go
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+            {mode == 3 && (
+              <>
+                <div className="navbar-themify">
+                  <motion.div
+                    className={
+                      switchMode == true ? "switch active" : "switch inactive"
+                    }
+                    onClick={toggleSwitch}
+                  >
+                    <motion.div className="base">
+                      <motion.div className="handle"></motion.div>
+                    </motion.div>
+                  </motion.div>
                 </div>
               </>
             )}

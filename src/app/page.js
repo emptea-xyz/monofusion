@@ -7,7 +7,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
-  const [panel, setPanel] = useState(0);
+  const [mode, setMode] = useState(0);
   const [option, setOption] = useState(false);
 
   const toggleOption = () => {
@@ -17,8 +17,8 @@ export default function Home() {
       setOption(false);
     }
   };
-  const resetPanel = () => {
-    setPanel(0);
+  const resetMode = () => {
+    setMode(0);
   };
   return (
     <>
@@ -27,7 +27,10 @@ export default function Home() {
         <motion.div className="platform-name">
           Mono<span>Fusion</span>
         </motion.div>
-        <motion.div className={option==true?"mode active":"mode"} onClick={toggleOption}>
+        <motion.div
+          className={option == true ? "mode active" : "mode"}
+          onClick={toggleOption}
+        >
           create
         </motion.div>
         <AnimatePresence>
@@ -48,10 +51,10 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-        <Create setPanel={setPanel} />
+        <Create setMode={setMode} />
       </motion.div>
-      <Backdrop panel={panel} setPanel={setPanel} resetPanel={resetPanel} />
-      <Navbar setPanel={setPanel} />
+      <Backdrop mode={mode} setMode={setMode} resetMode={resetMode} />
+      <Navbar setMode={setMode} />
     </>
   );
 }

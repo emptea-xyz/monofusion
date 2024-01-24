@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 import "./navbar.css";
 
-export default function Navbar({ setPanel }) {
+export default function Navbar({ setMode }) {
   return (
     <>
       <motion.div className="navigation-container">
@@ -18,15 +18,25 @@ export default function Navbar({ setPanel }) {
           <motion.div
             className="navigation-button"
             onClick={() => {
-              setPanel(1);
+              setMode(1);
             }}
           >
             <FontAwesomeIcon icon={faWallet} />
           </motion.div>
-          <motion.div className="navigation-button">
+          <motion.div
+            className="navigation-button"
+            onClick={() => {
+              setMode(2);
+            }}
+          >
             <FontAwesomeIcon icon={faNetworkWired} />
           </motion.div>
-          <motion.div className="navigation-button">
+          <motion.div
+            className="navigation-button"
+            onClick={() => {
+              setMode(3);
+            }}
+          >
             <FontAwesomeIcon icon={faPaintBrush} />
           </motion.div>
         </motion.div>

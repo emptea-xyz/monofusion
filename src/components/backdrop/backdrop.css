@@ -108,3 +108,208 @@
 #backdrop .modal .navbar-connector .icon.backpack {
     background-image: url("../../media/wallet-logo/backpack.jpg");
 }
+
+#backdrop .modal .navbar-network-manager {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    text-align: center;
+
+    font-family: "satoshi-regular";
+}
+
+#backdrop .modal .navbar-network-manager .default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#backdrop .modal .navbar-network-manager .line {
+    width: 300px;
+    height: 1px;
+    background-color: var(--black-faded-1);
+}
+
+#backdrop .modal .navbar-network-manager .default .switch {
+    position: relative;
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.inactive .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.inactive .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--black-faded-1);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.active .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.active .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 44px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .navbar-network-manager .custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#backdrop .modal .navbar-network-manager .custom .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#backdrop .modal .navbar-network-manager .custom .form input {
+    width: 300px;
+    height: 20px;
+
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-regular";
+    font-size: 14px;
+    color: var(--black);
+}
+
+#backdrop .modal .navbar-network-manager .custom .form .submit {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-medium";
+    font-size: 14px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-themify .switch {
+    position: relative;
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-themify .switch.inactive .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-themify .switch.inactive .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--black-faded-1);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-themify .switch.active .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .navbar-themify .switch.active .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 44px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}

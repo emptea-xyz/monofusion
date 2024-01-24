@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./panel.css";
 
-export default function Panel({ setPanel }) {
+export default function Panel({ setMode }) {
   const [type, setType] = useState(0);
   const [title, setTitle] = useState("-");
   const [description, setDescription] = useState("-");
@@ -63,7 +63,7 @@ export default function Panel({ setPanel }) {
             <motion.div
               className="attributes-button"
               onClick={() => {
-                setPanel(4);
+                setMode(4);
               }}
             >
               add attributes
