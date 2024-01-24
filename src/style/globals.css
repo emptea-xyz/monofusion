@@ -15,7 +15,10 @@
 
 :root {
   --black: #000000;
-  --black-faded: rgba(0, 0, 0, 0.2);
+  --white-faded-2: rgba(255, 255, 255, 0.2);
+  --white-faded-1: rgba(255, 255, 255, 0.1);
+  --black-faded-2: rgba(0, 0, 0, 0.2);
+  --black-faded-1: rgba(0, 0, 0, 0.1);
   --white: #ffffff;
   --pinot: #b21616;
 }

@@ -1,0 +1,110 @@
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--white-faded-1);
+    backdrop-filter: blur(5px);
+
+    z-index: 100;
+}
+
+#backdrop .modal {
+    position: relative;
+
+    width: fit-content;
+    height: fit-content;
+
+    padding: 20px;
+
+    border: 1px solid var(--black-faded-1);
+    border-radius: 20px;
+}
+
+#backdrop .modal .create-attributes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#backdrop .modal .create-attributes .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#backdrop .modal .create-attributes input {
+    width: 300px;
+    height: 20px;
+
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-regular";
+    font-size: 14px;
+    color: var(--black);
+}
+
+#backdrop .modal .create-attributes .submit {
+    width: 630px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-regular";
+    font-size: 14px;
+    color: var(--white);
+
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-connector {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+
+}
+
+#backdrop .modal .navbar-connector .icon {
+
+    width: 80px;
+    height: 80px;
+
+    background-image: url("../../media/wallet-logo/phantom.jpg");
+    background-size: contain;
+    border-radius: 5px;
+
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-connector .icon.solflare {
+    background-image: url("../../media/wallet-logo/solflare.jpg");
+}
+
+#backdrop .modal .navbar-connector .icon.backpack {
+    background-image: url("../../media/wallet-logo/backpack.jpg");
+}

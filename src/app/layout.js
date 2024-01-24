@@ -1,4 +1,3 @@
-
 import "../style/globals.css";
 import "../style/home.css";
 
