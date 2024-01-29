@@ -3,6 +3,7 @@ import Backdrop from "@/components/backdrop/Backdrop";
 import Navbar from "@/components/navbar/Navbar";
 import Create from "@/components/panel-create/Panel";
 import Leaderboad from "@/components/panel-leaderboard/Panel";
+import Profile from "@/components/panel-profile/Panel";
 import { useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -48,7 +49,7 @@ export default function Home() {
                 <motion.div
                   className="option"
                   onClick={() => {
-                    setPanel(1);
+                    setPanel(0);
                   }}
                 >
                   profile
@@ -62,24 +63,25 @@ export default function Home() {
                   leaderboard
                 </motion.div>
                 <motion.div className="line"></motion.div>
+                <motion.div className="option">airdrop</motion.div>
+                <motion.div className="option">maintain</motion.div>
                 <motion.div
                   className="option"
                   onClick={() => {
-                    setPanel(0);
+                    setPanel(2);
                   }}
                 >
-                  create
+                  create single
                 </motion.div>
-                <motion.div className="option">airdrop</motion.div>
-                <motion.div className="option">maintain</motion.div>
-                <motion.div className="option">create single</motion.div>
                 <motion.div className="option">create collection</motion.div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-        {panel == 0 && <Create setModal={setModal} />}
+        {panel == 0 && <Profile setModal={setModal} />}
         {panel == 1 && <Leaderboad setModal={setModal} />}
+
+        {panel == 2 && <Create setModal={setModal} />}
       </motion.div>
       <Backdrop modal={modal} setModal={setModal} resetModal={resetModal} />
       <Navbar setModal={setModal} />

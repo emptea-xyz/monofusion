@@ -13,10 +13,16 @@
   src: url(./fonts/Satoshi-Regular.otf);
 }
 
+@font-face {
+  font-family: array-regular;
+  src: url(./fonts/Array-Regular.otf);
+}
+
 :root {
   --black: #000000;
   --white-faded-2: rgba(255, 255, 255, 0.2);
   --white-faded-1: rgba(255, 255, 255, 0.1);
+  --black-faded-5: rgba(0, 0, 0, 0.5);
   --black-faded-2: rgba(0, 0, 0, 0.2);
   --black-faded-1: rgba(0, 0, 0, 0.1);
   --white: #ffffff;

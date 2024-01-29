@@ -1,0 +1,151 @@
+.main .panel.profile {
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px;
+  background-color: var(--white-faded-1);
+  border: 1px solid var(--black-faded-1);
+  border-radius: 20px;
+
+  backdrop-filter: blur(10px);
+}
+
+.main .panel.profile .row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.main .panel.profile .core {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.main .panel.profile .core .picture {
+
+  height: 200px;
+  width: 200px;
+
+  background-image: url("../../media/profile.png");
+  background-size: contain;
+  border: 1px solid var(--pinot);
+  border-radius: 10px;
+}
+
+
+
+.main .panel.profile .stats {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+}
+
+.main .panel.profile .stats .bits,
+.main .panel.profile .stats .stars,
+.main .panel.profile .stats .badges,
+.main .panel.profile .stats .rank {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+}
+
+
+.main .panel.profile .stats .amount {
+  font-family: "array-regular";
+  font-size: 48px;
+  color: var(--pinot);
+}
+
+.main .panel.profile .stats .name {
+  font-family: "satoshi-medium";
+}
+
+.main .panel.profile .stats .line {
+  width: 1px;
+  height: 150px;
+  background-color: var(--black-faded-1);
+}
+
+.main .panel.profile .badges {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
+.main .panel.profile .row .username {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.main .panel.profile .row .username .nickname {
+  font-family: "satoshi-medium";
+  font-size: 24px;
+}
+
+.main .panel.profile .row .username .wallet {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  font-family: "satoshi-regular";
+  font-size: 16px;
+  color: var(--black-faded-2);
+
+  cursor: pointer;
+}
+
+.main .panel.profile .row .username .wallet:hover {
+  color: var(--black-faded-5);
+}
+
+.main .panel.profile .row .pinwall {
+  position: relative;
+
+  width: 800px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+
+}
+
+.main .panel.profile .row .pinwall .title {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+
+  font-family: "satoshi-medium";
+  font-size: 36px;
+}
