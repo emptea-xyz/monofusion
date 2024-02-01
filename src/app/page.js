@@ -5,14 +5,21 @@ import Create from "@/components/panel-create/Panel";
 import Leaderboad from "@/components/panel-leaderboard/Panel";
 import Profile from "@/components/panel-profile/Panel";
 import { useState } from "react";
-
 import { AnimatePresence, motion } from "framer-motion";
 
+/**
+ * The Home component.
+ * The main component of the platform.
+ */
 export default function Home() {
-  const [modal, setModal] = useState(0); //each number defines which modal shoall be shown, 0 is standard and doesnt show a backdrop
-  const [option, setOption] = useState(false); //shows the panel-menu on "true", hides it on "false"
-  const [panel, setPanel] = useState(0); //each number defines which panel shall be shown
+  //Hook,which defines which modal shoall be shown, 0 is standard and doesnt show a backdrop
+  const [modal, setModal] = useState(0);
+  //Hook, which shows the panel-menu on "true", hides it on "false"
+  const [option, setOption] = useState(false);
+  //Hook, where each number defines which panel shall be shown
+  const [panel, setPanel] = useState(0);
 
+  //Function to toggle between the boolean state of "Option".
   const toggleOption = () => {
     if (option == false) {
       setOption(true);
@@ -20,6 +27,8 @@ export default function Home() {
       setOption(false);
     }
   };
+
+  //Function reset the state of the Modal component. State 0 sets it to invisible.
   const resetModal = () => {
     setModal(0);
   };
@@ -36,6 +45,7 @@ export default function Home() {
         >
           create
         </motion.div>
+        {/** Menu-panel to navigate between panels. */}
         <AnimatePresence>
           {option == true && (
             <motion.div
@@ -78,11 +88,12 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+        {/** Based on the state of the panel-hook, one of these panels  will be displayed */}
         {panel == 0 && <Profile setModal={setModal} />}
         {panel == 1 && <Leaderboad setModal={setModal} />}
-
         {panel == 2 && <Create setModal={setModal} />}
       </motion.div>
+      {/** Modal component, which behaves differently based on the modal-hook*/}
       <Backdrop modal={modal} setModal={setModal} resetModal={resetModal} />
       <Navbar setModal={setModal} />
     </>

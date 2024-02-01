@@ -9,6 +9,10 @@ import { motion } from "framer-motion";
 
 import "./navbar.css";
 
+/**
+ * The navbar. Should be self-explanatory.
+ * @param {Function} setModal - Function, which changes the ID of the Modal.
+ */
 export default function Navbar({ setModal }) {
   return (
     <>

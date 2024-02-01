@@ -38,7 +38,6 @@
 
   background-image: url("../../media/profile.png");
   background-size: contain;
-  border: 1px solid var(--pinot);
   border-radius: 10px;
 }
 

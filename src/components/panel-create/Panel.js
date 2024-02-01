@@ -3,10 +3,20 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./panel.css";
 
+/**
+ * The create-single panel. Used to create a single NFT.
+ * @param {Function} setModal - Function, which changes the ID of the Modal.
+ */
 export default function Panel({ setModal }) {
+  //sets the type of NFT (NFT, cNFT, pNFT).
   const [type, setType] = useState(0);
+  //sets the title of NFT.
   const [title, setTitle] = useState("-");
+  //sets the description of NFT.
   const [description, setDescription] = useState("-");
+  //sets the image-url of NFT.
+  const [image, setImage] = useState("-");
+  //sets the title of NFT.
   const [attributes, setAttributes] = useState([]);
 
   return (
@@ -19,6 +29,7 @@ export default function Panel({ setModal }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.1 }}
         >
+          {/**Every operation is done in here.*/}
           <motion.div className="editor">
             <motion.div className="switch">
               <motion.div
@@ -77,6 +88,7 @@ export default function Panel({ setModal }) {
               </motion.div>
             </motion.div>
           </motion.div>
+          {/**Shows a preview of the NFT */}
           <motion.div className="preview">
             <motion.div className="details">
               <div className="item name">

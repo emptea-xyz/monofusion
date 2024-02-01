@@ -4,18 +4,29 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./backdrop.css";
+
 /* 
 BACKDROP GUIDE
 0 = DEFAULT
 1 = WALLET CONNECTOR
 2 = NETWORK MANAGER
 3 = DESIGN SWITCH
-4 = CREATE - ATTRIBUTE EDITOR
-
+4 = create-single-panel: ATTRIBUTE EDITOR-
 */
+
+/**
+ * A component to show a Modal within a backdrop window.
+ * @param {JSX.Element} modal - The ID of the Modal to appear
+ * @param {Function} setModal - Function, which changes the ID of the Modal.
+ * @param {Function} resetModal - Resets the Modal ID to 0, which is the default state.
+ */
+
 export default function Backdrop({ modal, setModal, resetModal }) {
+  //hook to control the state of the network-switch, from modal "network-manager"
   const [switchModal, setSwitchModal] = useState(false);
 
+  //function to toggle between the boolean state of "switchModal"
+  //executed whenever you  click on the network-switch in "network-manager"
   const toggleSwitch = () => {
     if (switchModal != true) {
       setSwitchModal(true);
@@ -26,6 +37,7 @@ export default function Backdrop({ modal, setModal, resetModal }) {
   return (
     <AnimatePresence>
       {modal != 0 && (
+        //backdrop component. Blurs out the background to give a better contrast towards the modal.
         <motion.div
           className="backdrop"
           id="backdrop"
@@ -35,6 +47,7 @@ export default function Backdrop({ modal, setModal, resetModal }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.1 }}
         >
+          {/*Modal component. Frames the modal content.*/}
           <motion.div
             className="modal"
             initial={{ opacity: 0, y: 10 }}
@@ -72,7 +85,9 @@ export default function Backdrop({ modal, setModal, resetModal }) {
                     <div className="info">use the default network</div>
                     <motion.div
                       className={
-                        switchModal == true ? "switch active" : "switch inactive"
+                        switchModal == true
+                          ? "switch active"
+                          : "switch inactive"
                       }
                       onClick={toggleSwitch}
                     >

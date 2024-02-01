@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./panel.css";
 
+/**
+ * The create-single panel. Used to create a single NFT.
+ * @param {Function} setModal - Function, which changes the ID of the Modal.
+ */
 export default function Panel({ setModal }) {
-  const [type, setType] = useState(0);
-  const [title, setTitle] = useState("-");
-  const [description, setDescription] = useState("-");
-  const [attributes, setAttributes] = useState([]);
   const [users, setUsers] = useState([
     { username: "maru", wallet: "Fevc...de32", points: 1213 },
     { username: "batu", wallet: "Gvu1...5d14", points: 1164 },
