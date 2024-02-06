@@ -79,36 +79,6 @@
     cursor: pointer;
 }
 
-#backdrop .modal .navbar-connector {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-
-}
-
-#backdrop .modal .navbar-connector .icon {
-
-    width: 80px;
-    height: 80px;
-
-    background-image: url("../../media/wallet-logo/phantom.jpg");
-    background-size: contain;
-    border-radius: 5px;
-
-    backdrop-filter: blur(5px);
-    border: 1px solid var(--black-faded-1);
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#backdrop .modal .navbar-connector .icon.solflare {
-    background-image: url("../../media/wallet-logo/solflare.jpg");
-}
-
-#backdrop .modal .navbar-connector .icon.backpack {
-    background-image: url("../../media/wallet-logo/backpack.jpg");
-}
-
 #backdrop .modal .navbar-network-manager {
     display: flex;
     flex-direction: column;
