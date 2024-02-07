@@ -41,6 +41,8 @@
     transition-duration: 0.2s;
 }
 
+
+
 .wallet-adapter-modal {
     position: fixed;
     top: 0;
@@ -145,7 +147,7 @@
     border: none;
     color: var(--black);
 
-
+    cursor: pointer;
 }
 
 .wallet-adapter-button span {
@@ -230,18 +232,38 @@
 
     font-family: "satoshi-medium";
     font-size: 16px;
+
+    display: none;
 }
 
-.wallet-adapter-dropdown-list.false li {
+.wallet-adapter-dropdown-list.wallet-adapter-dropdown-list-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 0;
+}
+
+.wallet-adapter-dropdown-list-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    font-family: "satoshi-medium";
+    font-size: 16px;
+
     cursor: pointer;
+
 }
 
-.wallet-adapter-dropdown-list.false li:hover {
+
+.wallet-adapter-dropdown-list-item:hover {
     color: var(--pinot);
     transition-duration: 0.2s;
 }
 
-.wallet-adapter-dropdown-list.false li:not(:hover) {
+.wallet-adapter-dropdown-list-item:not(:hover) {
     transition-duration: 0.2s;
 }
-
