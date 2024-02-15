@@ -1,0 +1,238 @@
+.main .panel.create {
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px;
+  background-color: var(--white-faded-1);
+  border: 1px solid var(--black-faded-1);
+  border-radius: 20px;
+
+  backdrop-filter: blur(10px);
+}
+
+.main .panel.create .editor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main .panel.create .editor .switch {
+  width: 320px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main .panel.create .editor .switch div {
+  width: 33%;
+  height: 40px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+
+  font-family: "satoshi-regular";
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.main .panel.create .editor .switch .active {
+  background-color: var(--black-faded-1);
+  color: var(--pinot);
+}
+
+.main .panel.create .editor .switch div:hover {
+  background-color: var(--black-faded-1);
+  transition-duration: 0.2s;
+}
+
+.main .panel.create .editor .switch div:not(:hover) {
+  transition-duration: 0.2s;
+}
+
+.main .panel.create .editor .form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main .panel.create .editor .form input,
+.main .panel.create .editor .form textarea {
+  width: 300px;
+  height: 20px;
+
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+  outline: none;
+
+  font-family: "satoshi-regular";
+  font-size: 14px;
+  color: var(--black);
+}
+
+.main .panel.create .editor .form textarea {
+  height: 80px;
+  resize: none;
+}
+
+.main .panel.create .editor .form textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.main .panel.create .editor .attributes {
+  width: 320px;
+  height: 155px;
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+}
+
+.main .panel.create .editor .attributes-button {
+  width: 320px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+  outline: none;
+
+  font-family: "satoshi-regular";
+  font-size: 14px;
+  color: var(--black);
+
+  cursor: pointer;
+}
+
+.main .panel.create .editor .attributes-button:hover {
+  background-color: var(--black-faded-1);
+  transition-duration: 0.2s;
+
+}
+
+.main .panel.create .editor .attributes-button:not(:hover) {
+
+  transition-duration: 0.2s;
+}
+
+.main .panel.create .preview {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.main .panel.create .preview .content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.main .panel.create .preview .content .image {
+  width: 300px;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+
+  font-family: "satoshi-regular";
+  font-size: 14px;
+  color: var(--black-faded-2);
+  cursor: pointer;
+}
+
+.main .panel.create .preview .details {
+  min-width: 300px;
+  height: 380px;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+}
+
+.main .panel.create .preview .details .item {
+
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-bottom: 10px;
+
+  font-family: "satoshi-regular";
+}
+
+.main .panel.create .preview .details .item .key {
+  font-family: "satoshi-medium";
+}
+
+.main .panel.create .preview .details .item .value {
+  text-align: right;
+}
+
+
+.main .panel.create .preview .submit {
+  width: 300px;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--pinot);
+  border: 1px solid var(--black-faded-1);
+  border-radius: 10px;
+
+  font-family: "satoshi-medium";
+  font-size: 24px;
+  color: var(--white);
+
+  cursor: pointer;
+}
+
+.main .panel.create .preview .submit:hover {
+  background-color: var(--white);
+  color: var(--pinot);
+  transition-duration: 0.2s;
+}
+
+.main .panel.create .preview .submit:not(:hover) {
+  transition-duration: 0.2s;
+}

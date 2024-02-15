@@ -1,0 +1,285 @@
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--white-faded-1);
+    backdrop-filter: blur(5px);
+
+    z-index: 100;
+}
+
+#backdrop .modal {
+    position: relative;
+
+    width: fit-content;
+    height: fit-content;
+
+    padding: 20px;
+
+    border: 1px solid var(--black-faded-1);
+    border-radius: 20px;
+}
+
+#backdrop .modal .create-attributes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#backdrop .modal .create-attributes .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#backdrop .modal .create-attributes input {
+    width: 300px;
+    height: 20px;
+
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-regular";
+    font-size: 14px;
+    color: var(--black);
+}
+
+#backdrop .modal .create-attributes .submit {
+    width: 630px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-regular";
+    font-size: 14px;
+    color: var(--white);
+
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-network-manager {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    text-align: center;
+
+    font-family: "satoshi-regular";
+}
+
+#backdrop .modal .navbar-network-manager .default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#backdrop .modal .navbar-network-manager .line {
+    width: 300px;
+    height: 1px;
+    background-color: var(--black-faded-1);
+}
+
+#backdrop .modal .navbar-network-manager .default .switch {
+    position: relative;
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.inactive .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.inactive .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--black-faded-1);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.active .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .navbar-network-manager .default .switch.active .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 44px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .navbar-network-manager .custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#backdrop .modal .navbar-network-manager .custom .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#backdrop .modal .navbar-network-manager .custom .form input {
+    width: 300px;
+    height: 20px;
+
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-regular";
+    font-size: 14px;
+    color: var(--black);
+}
+
+#backdrop .modal .navbar-network-manager .custom .form .submit {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+    outline: none;
+
+    font-family: "satoshi-medium";
+    font-size: 14px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-themify .switch {
+    position: relative;
+    cursor: pointer;
+}
+
+#backdrop .modal .navbar-themify .switch.inactive .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-themify .switch.inactive .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--black-faded-1);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .navbar-themify .switch.active .base {
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .navbar-themify .switch.active .handle {
+    position: absolute;
+
+    top: 4px;
+    left: 44px;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 100px;
+
+    transition-duration: 0.2s;
+
+}

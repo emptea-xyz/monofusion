@@ -1,0 +1,269 @@
+.navbar-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wallet-adapter-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.wallet-adapter-button {
+    padding: 10px 20px 10px 20px;
+
+    background-color: var(--pinot);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+
+    color: var(--white);
+
+    font-family: "satoshi-medium";
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.wallet-adapter-button:hover {
+    background-color: var(--white);
+    color: var(--pinot);
+
+    transition-duration: 0.2s;
+}
+
+.wallet-adapter-button:hover {
+    background-color: var(--white);
+    color: var(--pinot);
+
+    transition-duration: 0.2s;
+}
+
+
+
+.wallet-adapter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 110;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    background-color: var(--white-faded-1);
+    backdrop-filter: blur(3px);
+}
+
+
+
+.wallet-adapter-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    border: 1px solid var(--black-faded-1);
+    border-radius: 20px;
+
+
+    background-color: var(--white);
+
+}
+
+.wallet-adapter-modal-wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.wallet-adapter-modal-button-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+
+    fill: var(--pinot);
+    cursor: pointer;
+}
+
+.wallet-adapter-modal-title {
+    font-family: "satoshi-black";
+
+    margin-bottom: 0;
+}
+
+.wallet-adapter-modal-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 0;
+    margin: 0;
+
+    height: fit-content;
+    list-style: none;
+
+}
+
+.wallet-adapter-collapse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    height: auto;
+    overflow: initial;
+}
+
+.wallet-adapter-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 0;
+    margin: 0;
+
+    background-color: transparent;
+    border: none;
+    color: var(--black);
+
+    cursor: pointer;
+}
+
+.wallet-adapter-button span {
+    display: none;
+}
+
+.wallet-adapter-button i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 120px;
+    height: 120px;
+
+    background-color: var(--black-faded-1);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 80px;
+
+    overflow: hidden;
+}
+
+.wallet-adapter-button i:hover {
+    background-color: var(--black-faded-2);
+    transition-duration: 0.2s;
+}
+
+.wallet-adapter-button img {
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+}
+
+.wallet-adapter-modal-list-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 20px 10px 20px;
+
+    background-color: var(--white);
+    border: 1px solid var(--black-faded-1);
+    border-radius: 10px;
+
+    font-family: "satoshi-regular";
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.wallet-adapter-modal-list-more:hover {
+    background-color: var(--black-faded-1);
+    transition-duration: 0.2s;
+}
+
+.wallet-adapter-modal-list-more:not(:hover) {
+    transition-duration: 0.2s;
+
+}
+
+.wallet-adapter-collapse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.wallet-adapter-collapse,
+#wallet-adapter-modal-collapse {
+    height: 200px;
+    overflow: initial;
+}
+
+.wallet-adapter-dropdown-list.false {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    font-family: "satoshi-medium";
+    font-size: 16px;
+
+    display: none;
+}
+
+.wallet-adapter-dropdown-list.wallet-adapter-dropdown-list-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 0;
+}
+
+.wallet-adapter-dropdown-list-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    font-family: "satoshi-medium";
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+
+.wallet-adapter-dropdown-list-item:hover {
+    color: var(--pinot);
+    transition-duration: 0.2s;
+}
+
+.wallet-adapter-dropdown-list-item:not(:hover) {
+    transition-duration: 0.2s;
+}

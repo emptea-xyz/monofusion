@@ -5,24 +5,46 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { motion } from "framer-motion";
 
 import "./navbar.css";
 
-export default function Navbar() {
+/**
+ * The navbar. Should be self-explanatory.
+ * @param {Function} setModal - Function, which changes the ID of the Modal.
+ */
+export default function Navbar({ setModal }) {
   return (
-    <div className="navigation-container">
-      <div className="navigation">
-        <div className="navigation-button logo"></div>
-        <div className="navigation-button">
-          <FontAwesomeIcon icon={faWallet} />
-        </div>
-        <div className="navigation-button">
-          <FontAwesomeIcon icon={faNetworkWired} />
-        </div>
-        <div className="navigation-button">
-          <FontAwesomeIcon icon={faPaintBrush} />
-        </div>
-      </div>
-    </div>
+    <>
+      <motion.div className="navigation-container">
+        <motion.div className="navigation">
+          <motion.div className="navigation-button logo"></motion.div>
+          <motion.div
+            className="navigation-button"
+            onClick={() => {
+              setModal(1);
+            }}
+          >
+            <FontAwesomeIcon icon={faWallet} />
+          </motion.div>
+          <motion.div
+            className="navigation-button"
+            onClick={() => {
+              setModal(2);
+            }}
+          >
+            <FontAwesomeIcon icon={faNetworkWired} />
+          </motion.div>
+          <motion.div
+            className="navigation-button"
+            onClick={() => {
+              setModal(3);
+            }}
+          >
+            <FontAwesomeIcon icon={faPaintBrush} />
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </>
   );
 }
