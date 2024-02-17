@@ -107,7 +107,13 @@ export default function Home() {
         {panel == 0 && <Create setModal={setModal} />}
       </motion.div>
       {/** Modal component, which behaves differently based on the modal-hook*/}
-      <Backdrop modal={modal} setModal={setModal} resetModal={resetModal} />
+      <Backdrop
+        modal={modal}
+        setModal={setModal}
+        resetModal={resetModal}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <Navbar setModal={setModal} theme={theme} toggleTheme={toggleTheme} />
     </>
   );

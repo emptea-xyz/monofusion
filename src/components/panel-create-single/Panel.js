@@ -31,7 +31,7 @@ export default function Panel({ setModal }) {
         >
           {/**Every operation is done in here.*/}
           <motion.div className="editor">
-            <motion.div className="switch">
+            <motion.div className="switch font-text-small">
               <motion.div
                 onClick={() => {
                   setType(0);
@@ -65,6 +65,7 @@ export default function Panel({ setModal }) {
                 type="text"
                 name="title"
                 placeholder="Name"
+                className="font-text-small"
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -73,13 +74,14 @@ export default function Panel({ setModal }) {
                 type="text"
                 name="description"
                 placeholder="Description"
+                className="font-text-small"
                 onChange={(e) => {
                   setDescription(e.target.value);
                 }}
               />
               <motion.div className="attributes"></motion.div>
               <motion.div
-                className="attributes-button"
+                className="attributes-button font-text-bold"
                 onClick={() => {
                   setModal(4);
                 }}
@@ -92,27 +94,27 @@ export default function Panel({ setModal }) {
           <motion.div className="preview">
             <motion.div className="details">
               <div className="item name">
-                <div className="key">
+                <div className="key font-text-small-bold">
                   <div>Name</div>
                 </div>
-                <div className="value">
+                <div className="value font-text-small">
                   <div>{title}</div>
                 </div>
               </div>
               <div className="item description">
-                <div className="key">
+                <div className="key  font-text-small-bold">
                   <div>Description</div>
                 </div>
-                <div className="value">
+                <div className="value font-text-small">
                   <div>{description}</div>
                 </div>
               </div>
               <div className="item attributes">
-                <div className="key">
+                <div className="key font-text-small-bold">
                   <div>Attributes</div>
                 </div>
                 {attributes.length != 0 && (
-                  <div className="value">
+                  <div className="value font-text-small">
                     {attributes.map((value) => {
                       return <div>{value.key + ": " + value.value}</div>;
                     })}
@@ -123,9 +125,9 @@ export default function Panel({ setModal }) {
             </motion.div>
             <motion.div className="content">
               <motion.div className="image">
-                <div className="placeholder">click here to import an image</div>
+                <div className="placeholder font-text-small">click here to import an image</div>
               </motion.div>
-              <motion.div className="submit">create</motion.div>
+              <motion.div className="submit font-text-bold">create</motion.div>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -69,102 +69,76 @@ body {
   font-family: "satoshi";
   font-size: 52px;
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-h2 {
   font-family: "satoshi";
   font-size: 40px;
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-h3 {
   font-family: "satoshi";
   font-size: 28px;
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-h4 {
   font-family: "satoshi";
   font-size: 22px;
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text {
   font-family: "satoshi";
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-bold {
   font-family: "satoshi";
   font-size: 18px;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-light {
   font-family: "satoshi";
   font-size: 18px;
   font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-small {
   font-family: "satoshi";
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-small-bold {
   font-family: "satoshi";
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-small-light {
   font-family: "satoshi";
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-tiny {
   font-family: "satoshi";
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-tiny-bold {
   font-family: "satoshi";
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }
 
 .font-text-tiny-light {
   font-family: "satoshi";
   font-size: 14px;
   font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -1px;
 }

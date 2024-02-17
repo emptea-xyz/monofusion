@@ -8,8 +8,8 @@
   gap: 10px;
 
   padding: 10px;
-  background-color: var(--white-faded-1);
-  border: 1px solid var(--black-faded-1);
+  background-color: var(--primary-faded-1);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 20px;
 
   backdrop-filter: blur(10px);
@@ -42,19 +42,20 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid var(--black-faded-1);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 10px;
 
   cursor: pointer;
 }
 
 .main .panel.create .editor .switch .active {
-  background-color: var(--black-faded-1);
-  color: var(--pinot);
+  background-color: var(--primary-faded-3);
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .main .panel.create .editor .switch div:hover {
-  background-color: var(--black-faded-1);
+  background-color: var(--primary-faded-3);
   transition-duration: 0.2s;
 }
 
@@ -77,11 +78,12 @@
 
   padding: 10px;
   background-color: transparent;
-  border: 1px solid var(--black-faded-1);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 10px;
   outline: none;
 
-  color: var(--black);
+  font-family: "satoshi";
+  color: var(--secondary);
 }
 
 .main .panel.create .editor .form textarea {
@@ -96,7 +98,7 @@
 .main .panel.create .editor .attributes {
   width: 320px;
   height: 155px;
-  border: 1px solid var(--black-faded-1);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 10px;
 }
 
@@ -108,19 +110,18 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid var(--black-faded-1);
+  background-color: var(--primary-faded-2);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 10px;
   outline: none;
 
-  color: var(--black);
+  color: var(--secondary);
 
   cursor: pointer;
 }
 
 .main .panel.create .editor .attributes-button:hover {
-  background-color: var(--black-faded-1);
-  transition-duration: 0.2s;
-
+  color: var(--accent);
 }
 
 .main .panel.create .editor .attributes-button:not(:hover) {
@@ -155,10 +156,10 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid var(--black-faded-1);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 10px;
 
-  color: var(--black-faded-2);
+  color: var(--secondary-faded-2);
   cursor: pointer;
 }
 
@@ -173,7 +174,7 @@
   align-items: center;
   justify-content: flex-start;
 
-  border: 1px solid var(--black-faded-1);
+  border: 1px solid var(--primary-faded-3);
   border-radius: 10px;
 }
 
@@ -203,17 +204,17 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--pinot);
-  border: 1px solid var(--black-faded-1);
-  border-radius: 10px; 
-  color: var(--white);
+  background-color: var(--accent);
+  border: 1px solid var(--primary-faded-3);
+  border-radius: 10px;
+  color: var(--primary);
 
   cursor: pointer;
 }
 
 .main .panel.create .preview .submit:hover {
-  background-color: var(--white);
-  color: var(--pinot);
+  background-color: var(--primary);
+  color: var(--accent);
   transition-duration: 0.2s;
 }
 

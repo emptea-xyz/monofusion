@@ -2,7 +2,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 import CreateSingleAttributeAdder from "./createSingleAttributeAdder/Modal";
 import WalletConnector from "./walletConnector/Modal";
 import NetworkManager from "./networkManager/Modal";
@@ -31,6 +30,7 @@ export default function Backdrop({ modal, setModal, resetModal }) {
       {modal != 0 && (
         //backdrop component. Blurs out the background to give a better contrast towards the modal.
         <motion.div
+          data-theme={theme == 0 ? "light" : "dark"}
           className="backdrop"
           id="backdrop"
           onClick={resetModal}

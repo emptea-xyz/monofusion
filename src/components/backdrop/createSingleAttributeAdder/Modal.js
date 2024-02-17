@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Modal({ modal, setModal, resetModal }) {
+export default function Modal({ modal, setModal, resetModal  }) {
   //hook to control the state of the network-switch, from modal "network-manager"
   const [switchModal, setSwitchModal] = useState(false);
 
@@ -18,10 +18,10 @@ export default function Modal({ modal, setModal, resetModal }) {
     }
   };
   return (
-    <div className="create-attributes">
+    <div className="create-attributes font-text">
     <div className="input">
-      <input type="text" className="key" placeholder="key" />
-      <input type="text" className="value" placeholder="value" />
+      <input type="text" className="key font-text" placeholder="key" />
+      <input type="text" className="value font-text" placeholder="value" />
     </div>
     <div className="submit">add</div>
   </div>
