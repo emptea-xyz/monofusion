@@ -1,62 +1,170 @@
 @font-face {
-  font-family: satoshi-black;
-  src: url(./fonts/Satoshi-Black.otf);
+  font-family: "satoshi";
+  src: url(./fonts/Satoshi-Variable.ttf);
 }
 
-@font-face {
-  font-family: satoshi-medium;
-  src: url(./fonts/Satoshi-Medium.otf);
+/**the scrollbar should be invisible and the page should still be scrollable*/
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
-@font-face {
-  font-family: satoshi-regular;
-  src: url(./fonts/Satoshi-Regular.otf);
-}
-
-@font-face {
-  font-family: array-regular;
-  src: url(./fonts/Array-Regular.otf);
-}
-
+/**a set of themes including the color black & white in 3 different grades and one accent color, lets take a violet for the accent*/
 :root {
   --black: #000000;
-  --white-faded-2: rgba(255, 255, 255, 0.2);
-  --white-faded-1: rgba(255, 255, 255, 0.1);
-  --black-faded-5: rgba(0, 0, 0, 0.5);
-  --black-faded-2: rgba(0, 0, 0, 0.2);
-  --black-faded-1: rgba(0, 0, 0, 0.1);
+  --black-faded-1: #1a1a1a;
+  --black-faded-2: #333333;
+  --black-faded-3: #4d4d4d;
   --white: #ffffff;
-  --pinot: #b21616;
+  --white-faded-1: #f2f2f2;
+  --white-faded-2: #e5e5e5;
+  --white-faded-3: #d9d9d9;
+  --accent: #b21616;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/**a light and a dark variant for the following elements:background,primary,primary-faded-(1 to 3), secondary-faded-(1 to 3), and other useful elements. each variant named like this: [data-theme="light"] */
 
+[data-theme="light"] {
+  --primary: var(--white);
+  --primary-faded-1: var(--white-faded-1);
+  --primary-faded-2: var(--white-faded-2);
+  --primary-faded-3: var(--white-faded-3);
+  --secondary: var(--black);
+  --secondary-faded-1: var(--black-faded-1);
+  --secondary-faded-2: var(--black-faded-2);
+  --secondary-faded-3: var(--black-faded-3);
+  --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] {
+  --primary: var(--black);
+  --primary-faded-1: var(--black-faded-1);
+  --primary-faded-2: var(--black-faded-2);
+  --primary-faded-3: var(--black-faded-3);
+  --secondary: var(--white);
+  --secondary-faded-1: var(--white-faded-1);
+  --secondary-faded-2: var(--white-faded-2);
+  --secondary-faded-3: var(--white-faded-3);
+  --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--primary);
+
+}
+
+body {
   margin: 0;
   padding: 0;
+  font-family: "satoshi";
+  background-color: var(--primary);
+  color: var(--secondary);
+  overflow-x: hidden;
 }
 
-a {
-  color: var(--pinot);
-  text-decoration: none;
+/** a set of font-classes using the satoshi font-face including one for h1,h2,h3,h4 and a few text variations each with the appropriate sizes and weights. and each one should start with font- and the element*/
+.font-h1 {
+  font-family: "satoshi";
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
 
-.text-1 {
-  font-family: "satoshi-medium";
-  font-size: 24px;
-  letter-spacing: 1;
+.font-h2 {
+  font-family: "satoshi";
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
 
-.text-2 {
-  font-family: "satoshi-medium";
+.font-h3 {
+  font-family: "satoshi";
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-h4 {
+  font-family: "satoshi";
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text {
+  font-family: "satoshi";
   font-size: 18px;
-  letter-spacing: 1;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
 
-.text-3 {
-  font-family: "satoshi-medium";
+.font-text-bold {
+  font-family: "satoshi";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-light {
+  font-family: "satoshi";
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-small {
+  font-family: "satoshi";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-small-bold {
+  font-family: "satoshi";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-small-light {
+  font-family: "satoshi";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-tiny {
+  font-family: "satoshi";
   font-size: 14px;
-  letter-spacing: 1;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-tiny-bold {
+  font-family: "satoshi";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.font-text-tiny-light {
+  font-family: "satoshi";
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }

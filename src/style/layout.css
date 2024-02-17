@@ -1,0 +1,90 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.row {
+    width: 50vw;
+}
+
+.row.left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.row.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row.right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cover {
+    font-family: "satoshi-black";
+    font-size: 96px;
+    letter-spacing: -5%;
+    line-height: 90%;
+}
+
+.title {
+    font-family: "satoshi-black";
+    font-size: 48px;
+    letter-spacing: -5%;
+}
+
+.header-1 {
+    font-family: "satoshi-black";
+    font-size: 36px;
+    letter-spacing: -5%;
+
+    color: var(--signature);
+}
+
+.header-2 {
+    font-family: "satoshi-black";
+    font-size: 28px;
+    letter-spacing: -5%;
+}
+
+
+.text {
+    font-family: "satoshi-regular";
+    font-size: 18px;
+    letter-spacing: -5%;
+    white-space: pre-line;
+}
+
+.button-1 {
+    font-family: "satoshi-black";
+    font-size: 20px;
+    letter-spacing: -5%;
+}
+
+.button-2 {
+    font-family: "satoshi-black";
+    font-size: 28px;
+    letter-spacing: -5%;
+}
+
+.button-3 {
+    font-family: "satoshi-black";
+    font-size: 32px;
+    letter-spacing: -5%;
+}

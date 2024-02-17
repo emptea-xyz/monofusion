@@ -13,10 +13,13 @@ import "./navbar.css";
  * The navbar. Should be self-explanatory.
  * @param {Function} setModal - Function, which changes the ID of the Modal.
  */
-export default function Navbar({ setModal }) {
+export default function Navbar({ setModal, theme, toggleTheme }) {
   return (
     <>
-      <motion.div className="navigation-container">
+      <motion.div
+        className="navigation-container"
+        data-theme={theme == 0 ? "light" : "dark"}
+      >
         <motion.div className="navigation">
           <motion.div className="navigation-button logo"></motion.div>
           <motion.div
@@ -38,7 +41,8 @@ export default function Navbar({ setModal }) {
           <motion.div
             className="navigation-button"
             onClick={() => {
-              setModal(3);
+              toggleTheme();
+              console.log(theme);
             }}
           >
             <FontAwesomeIcon icon={faPaintBrush} />

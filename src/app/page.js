@@ -1,7 +1,7 @@
 "use client";
 import Backdrop from "@/components/backdrop/Backdrop";
 import Navbar from "@/components/navbar/Navbar";
-import Create from "@/components/panel-create/Panel";
+import Create from "@/components/panel-create-single/Panel";
 import Leaderboad from "@/components/panel-leaderboard/Panel";
 import Profile from "@/components/panel-profile/Panel";
 import { useState } from "react";
@@ -18,6 +18,8 @@ export default function Home() {
   const [option, setOption] = useState(false);
   //Hook, where each number defines which panel shall be shown
   const [panel, setPanel] = useState(0);
+  //Hook, which defines the theme of the platform
+  const [theme, setTheme] = useState(0);
 
   //Function to toggle between the boolean state of "Option".
   const toggleOption = () => {
@@ -28,19 +30,30 @@ export default function Home() {
     }
   };
 
+  //Function to toggle between the boolean state of "Theme".
+  const toggleTheme = () => {
+    if (theme == 0) {
+      setTheme(1);
+    } else {
+      setTheme(0);
+    }
+  };
+
   //Function reset the state of the Modal component. State 0 sets it to invisible.
   const resetModal = () => {
     setModal(0);
   };
   return (
     <>
-      <motion.div className="main">
+      <motion.div className="main" data-theme={theme == 0 ? "light" : "dark"}>
         <motion.div className="texture"></motion.div>
-        <motion.div className="platform-name">
+        <motion.div className="platform-name  font-h3">
           Mono<span>Fusion</span>
         </motion.div>
         <motion.div
-          className={option == true ? "mode active" : "mode"}
+          className={
+            option == true ? "mode active font-text" : "mode font-text"
+          }
           onClick={toggleOption}
         >
           create
@@ -49,7 +62,7 @@ export default function Home() {
         <AnimatePresence>
           {option == true && (
             <motion.div
-              className="options"
+              className="options font-text"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
@@ -59,7 +72,7 @@ export default function Home() {
                 <motion.div
                   className="option"
                   onClick={() => {
-                    setPanel(0);
+                    setPanel(2);
                   }}
                 >
                   profile
@@ -78,7 +91,7 @@ export default function Home() {
                 <motion.div
                   className="option"
                   onClick={() => {
-                    setPanel(2);
+                    setPanel(0);
                   }}
                 >
                   create single
@@ -89,13 +102,13 @@ export default function Home() {
           )}
         </AnimatePresence>
         {/** Based on the state of the panel-hook, one of these panels  will be displayed */}
-        {panel == 0 && <Profile setModal={setModal} />}
+        {panel == 2 && <Profile setModal={setModal} />}
         {panel == 1 && <Leaderboad setModal={setModal} />}
-        {panel == 2 && <Create setModal={setModal} />}
+        {panel == 0 && <Create setModal={setModal} />}
       </motion.div>
       {/** Modal component, which behaves differently based on the modal-hook*/}
       <Backdrop modal={modal} setModal={setModal} resetModal={resetModal} />
-      <Navbar setModal={setModal} />
+      <Navbar setModal={setModal} theme={theme} toggleTheme={toggleTheme} />
     </>
   );
 }
