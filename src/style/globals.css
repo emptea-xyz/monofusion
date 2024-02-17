@@ -12,28 +12,36 @@
 /**a set of themes including the color black & white in 3 different grades and one accent color, lets take a violet for the accent*/
 :root {
   --black: #000000;
+  --black-foil: #00000070;
   --black-faded-1: #1a1a1a;
   --black-faded-2: #333333;
   --black-faded-3: #4d4d4d;
   --white: #ffffff;
+  --white-foil: #ffffff70;
   --white-faded-1: #f2f2f2;
   --white-faded-2: #e5e5e5;
   --white-faded-3: #d9d9d9;
   --accent: #b21616;
+  --accent-faded-1: #8f0f0f;
+  --accent-faded-2: #6c0c0c;
+  --accent-faded-3: #490909;
 }
 
 /**a light and a dark variant for the following elements:background,primary,primary-faded-(1 to 3), secondary-faded-(1 to 3), and other useful elements. each variant named like this: [data-theme="light"] */
 
 [data-theme="light"] {
   --primary: var(--white);
+  --primary-foil: var(--white-foil);
   --primary-faded-1: var(--white-faded-1);
   --primary-faded-2: var(--white-faded-2);
   --primary-faded-3: var(--white-faded-3);
   --secondary: var(--black);
+  --secondary-foil: var(--black-foil);
   --secondary-faded-1: var(--black-faded-1);
   --secondary-faded-2: var(--black-faded-2);
   --secondary-faded-3: var(--black-faded-3);
   --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 [data-theme="dark"] {
@@ -41,7 +49,9 @@
   --primary-faded-1: var(--black-faded-1);
   --primary-faded-2: var(--black-faded-2);
   --primary-faded-3: var(--black-faded-3);
+  --primary-foil: var(--black-foil);
   --secondary: var(--white);
+  --secondary-foil: var(--white-foil);
   --secondary-faded-1: var(--white-faded-1);
   --secondary-faded-2: var(--white-faded-2);
   --secondary-faded-3: var(--white-faded-3);
@@ -62,6 +72,11 @@ body {
   background-color: var(--primary);
   color: var(--secondary);
   overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
 }
 
 /** a set of font-classes using the satoshi font-face including one for h1,h2,h3,h4 and a few text variations each with the appropriate sizes and weights. and each one should start with font- and the element*/

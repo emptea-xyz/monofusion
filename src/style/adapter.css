@@ -16,31 +16,20 @@
     padding: 10px 20px 10px 20px;
 
     background-color: var(--accent);
-    border: 1px solid var(--black-faded-1);
+    border: 1px solid var(--white-faded-3);
     border-radius: 10px;
 
     color: var(--white);
 
-    font-family: "satoshi-medium";
+    font-family: "satoshi";
     font-size: 18px;
 
     cursor: pointer;
 }
 
 .wallet-adapter-button:hover {
-    background-color: var(--white);
     color: var(--accent);
-
-    transition-duration: 0.2s;
 }
-
-.wallet-adapter-button:hover {
-    background-color: var(--white);
-    color: var(--accent);
-
-    transition-duration: 0.2s;
-}
-
 
 
 .wallet-adapter-modal {
@@ -55,9 +44,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-    background-color: var(--white-faded-1);
     backdrop-filter: blur(3px);
 }
 
@@ -69,11 +55,9 @@
     justify-content: center;
 
     padding: 20px;
-    border: 1px solid var(--black-faded-1);
+    border: 1px solid var(--white-faded-3);
     border-radius: 20px;
-
-
-    background-color: var(--white);
+    background-color: var(--white-faded-1);
 
 }
 
@@ -104,7 +88,7 @@
 }
 
 .wallet-adapter-modal-title {
-    font-family: "satoshi-black";
+    font-family: "satoshi";
 
     margin-bottom: 0;
 }
@@ -161,16 +145,15 @@
 
     width: 120px;
     height: 120px;
-
-    background-color: var(--black-faded-1);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--white-faded-2);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--white-faded-2);
     border-radius: 80px;
-
     overflow: hidden;
 }
 
 .wallet-adapter-button i:hover {
-    background-color: var(--black-faded-2);
+    background-color: var(--white-faded-3);
     transition-duration: 0.2s;
 }
 
@@ -187,17 +170,17 @@
 
     padding: 10px 20px 10px 20px;
 
-    background-color: var(--white);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--white-faded-2);
+    border: 1px solid var(--white-faded-2);
     border-radius: 10px;
 
-    font-family: "satoshi-regular";
+    font-family: "satoshi";
     font-size: 18px;
     cursor: pointer;
 }
 
 .wallet-adapter-modal-list-more:hover {
-    background-color: var(--black-faded-1);
+    background-color: var(--white-faded-3);
     transition-duration: 0.2s;
 }
 
@@ -230,7 +213,7 @@
     margin: 0;
     padding: 0;
 
-    font-family: "satoshi-medium";
+    font-family: "satoshi";
     font-size: 16px;
 
     display: none;
@@ -251,7 +234,7 @@
     margin: 0;
     padding: 0;
 
-    font-family: "satoshi-medium";
+    font-family: "satoshi";
     font-size: 16px;
 
     cursor: pointer;

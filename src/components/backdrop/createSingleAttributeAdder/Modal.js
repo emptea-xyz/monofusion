@@ -4,26 +4,44 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Modal({ modal, setModal, resetModal  }) {
+export default function Modal({ modal, setModal, resetModal }) {
   //hook to control the state of the network-switch, from modal "network-manager"
-  const [switchModal, setSwitchModal] = useState(false);
-
-  //function to toggle between the boolean state of "switchModal"
-  //executed whenever you  click on the network-switch in "network-manager"
-  const toggleSwitch = () => {
-    if (switchModal != true) {
-      setSwitchModal(true);
-    } else {
-      setSwitchModal(false);
-    }
-  };
+  const [key, setKey] = useState("");
+  const [value, setValue] = useState("");
   return (
     <div className="create-attributes font-text">
-    <div className="input">
-      <input type="text" className="key font-text" placeholder="key" />
-      <input type="text" className="value font-text" placeholder="value" />
+      <form onSubmit={(e) => e.preventDefault()}>
+        <div className="input">
+          <input
+            type="text"
+            className="key font-text"
+            placeholder="key"
+            required=""
+            onChange={(e) => {
+              setKey(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            className="value font-text"
+            placeholder="value"
+            required
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          />
+        </div>
+        <button
+          className="submit font-text-bold"
+          type="submit"
+          disabled={!key || !value}
+          onClick={() => {
+            resetModal();
+          }}
+        >
+          {!key || !value ? "fill in the fields" : "add"}
+        </button>
+      </form>
     </div>
-    <div className="submit">add</div>
-  </div>
   );
 }
