@@ -45,9 +45,6 @@
   border: 1px solid var(--black-faded-1);
   border-radius: 10px;
 
-  font-family: "satoshi-regular";
-  font-size: 16px;
-
   cursor: pointer;
 }
 
@@ -84,8 +81,6 @@
   border-radius: 10px;
   outline: none;
 
-  font-family: "satoshi-regular";
-  font-size: 14px;
   color: var(--black);
 }
 
@@ -117,8 +112,6 @@
   border-radius: 10px;
   outline: none;
 
-  font-family: "satoshi-regular";
-  font-size: 14px;
   color: var(--black);
 
   cursor: pointer;
@@ -165,8 +158,6 @@
   border: 1px solid var(--black-faded-1);
   border-radius: 10px;
 
-  font-family: "satoshi-regular";
-  font-size: 14px;
   color: var(--black-faded-2);
   cursor: pointer;
 }
@@ -196,12 +187,8 @@
 
   padding-bottom: 10px;
 
-  font-family: "satoshi-regular";
 }
 
-.main .panel.create .preview .details .item .key {
-  font-family: "satoshi-medium";
-}
 
 .main .panel.create .preview .details .item .value {
   text-align: right;
@@ -218,10 +205,7 @@
 
   background-color: var(--pinot);
   border: 1px solid var(--black-faded-1);
-  border-radius: 10px;
-
-  font-family: "satoshi-medium";
-  font-size: 24px;
+  border-radius: 10px; 
   color: var(--white);
 
   cursor: pointer;

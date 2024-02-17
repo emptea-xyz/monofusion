@@ -15,7 +15,7 @@
 .wallet-adapter-button {
     padding: 10px 20px 10px 20px;
 
-    background-color: var(--pinot);
+    background-color: var(--accent);
     border: 1px solid var(--black-faded-1);
     border-radius: 10px;
 
@@ -29,14 +29,14 @@
 
 .wallet-adapter-button:hover {
     background-color: var(--white);
-    color: var(--pinot);
+    color: var(--accent);
 
     transition-duration: 0.2s;
 }
 
 .wallet-adapter-button:hover {
     background-color: var(--white);
-    color: var(--pinot);
+    color: var(--accent);
 
     transition-duration: 0.2s;
 }
@@ -99,7 +99,7 @@
     background-color: transparent;
     border: none;
 
-    fill: var(--pinot);
+    fill: var(--accent);
     cursor: pointer;
 }
 
@@ -260,7 +260,7 @@
 
 
 .wallet-adapter-dropdown-list-item:hover {
-    color: var(--pinot);
+    color: var(--accent);
     transition-duration: 0.2s;
 }
 
