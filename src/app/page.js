@@ -1,9 +1,9 @@
 "use client";
-import Backdrop from "@/components/backdrop/Backdrop";
-import Navbar from "@/components/navbar/Navbar";
-import Create from "@/components/panel-create-single/Panel";
-import Leaderboad from "@/components/panel-leaderboard/Panel";
-import Profile from "@/components/panel-profile/Panel";
+import Backdrop from "@/ui/backdrop/Backdrop";
+import Navbar from "@/ui/navbar/Navbar";
+import Create from "@/ui/panel-create-single/Panel";
+import Leaderboad from "@/ui/panel-leaderboard/Panel";
+import Profile from "@/ui/panel-profile/Panel";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
