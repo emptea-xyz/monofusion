@@ -7,21 +7,16 @@ import "../style/adapter.css";
 import "../style/home.css";
 
 //web3
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-//
-import { ConnectionProvider } from "@solana/wallet-adapter-react";
 import { WalletProvider } from "@solana/wallet-adapter-react";
-//
+import { ConnectionProvider } from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
-//
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
 import {
   SolflareWalletAdapter,
   LedgerWalletAdapter,
-  BitgetWalletAdapter,
   CoinbaseWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
-//
 import { clusterApiUrl } from "@solana/web3.js";
 
 /**

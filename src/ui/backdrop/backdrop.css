@@ -7,14 +7,38 @@
     height: 100vh;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 
-    background-color: var(--white-faded-1);
-    backdrop-filter: blur(5px);
+    background-color: var(--primary-foil);
+    backdrop-filter: blur(8px);
 
     z-index: 100;
 }
+
+#backdrop .close-button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-faded-1);
+    border: 1px solid var(--primary-faded-2);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .close-button:hover {
+    background-color: var(--primary-faded-2);
+}
+
+
+
+
 
 #backdrop .modal {
     position: relative;
@@ -24,7 +48,8 @@
 
     padding: 20px;
 
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--primary-faded-1);
+    border: 1px solid var(--primary-faded-2);
     border-radius: 20px;
 }
 
@@ -32,6 +57,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+#backdrop .modal .create-attributes form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: center;
     gap: 10px;
 }
@@ -48,35 +80,47 @@
     height: 20px;
 
     padding: 10px;
-    background-color: transparent;
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--primary-faded-1);
+    border: 1px solid var(--primary-faded-2);
     border-radius: 10px;
     outline: none;
-
-    font-family: "satoshi-regular";
-    font-size: 14px;
-    color: var(--black);
+    color: var(--secondary);
 }
 
+
+
 #backdrop .modal .create-attributes .submit {
-    width: 630px;
+
+    width: 654px;
     height: 20px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 10px;
-    background-color: var(--pinot);
-    border: 1px solid var(--black-faded-1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--accent);
+    border: 1px solid var(--primary-faded-1);
     border-radius: 10px;
     outline: none;
-
-    font-family: "satoshi-regular";
-    font-size: 14px;
     color: var(--white);
 
     cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#backdrop .modal .create-attributes .submit:disabled {
+    background-color: var(--primary-faded-3);
+    border: 1px solid var(--primary-faded-2);
+    color: var(--primary);
+    cursor: not-allowed;
+    transition-duration: 0.2s;
+
+}
+
+#backdrop .modal .create-attributes .submit:not(:disabled):hover {
+    background-color: var(--accent-faded-1);
 }
 
 #backdrop .modal .navbar-network-manager {
@@ -87,8 +131,7 @@
     gap: 10px;
 
     text-align: center;
-
-    font-family: "satoshi-regular";
+    color: var(--secondary);
 }
 
 #backdrop .modal .navbar-network-manager .default {
@@ -102,7 +145,7 @@
 #backdrop .modal .navbar-network-manager .line {
     width: 300px;
     height: 1px;
-    background-color: var(--black-faded-1);
+    background-color: var(--primary-faded-3);
 }
 
 #backdrop .modal .navbar-network-manager .default .switch {
@@ -116,8 +159,8 @@
     width: 80px;
     height: 40px;
 
-    background-color: var(--white);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--primary-faded-1);
+    border: 1px solid var(--primary-faded-3);
     border-radius: 100px;
 
     transition-duration: 0.2s;
@@ -132,8 +175,8 @@
     width: 30px;
     height: 30px;
 
-    background-color: var(--black-faded-1);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--secondary-faded-1);
+    border: 1px solid var(--secondary-faded-1);
     border-radius: 100px;
 
     transition-duration: 0.2s;
@@ -145,8 +188,9 @@
     width: 80px;
     height: 40px;
 
-    background-color: var(--pinot);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--accent);
+    border: 1px solid var(--primary-faded-3);
+
     border-radius: 100px;
 
     transition-duration: 0.2s;
@@ -162,8 +206,8 @@
     width: 30px;
     height: 30px;
 
-    background-color: var(--white);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary-faded-3);
     border-radius: 100px;
 
     transition-duration: 0.2s;
@@ -191,13 +235,11 @@
 
     padding: 10px;
     background-color: transparent;
-    border: 1px solid var(--black-faded-1);
+    border: 1px solid var(--primary-faded-3);
     border-radius: 10px;
     outline: none;
 
-    font-family: "satoshi-regular";
-    font-size: 14px;
-    color: var(--black);
+    color: var(--secondary);
 }
 
 #backdrop .modal .navbar-network-manager .custom .form .submit {
@@ -208,78 +250,20 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--pinot);
-    border: 1px solid var(--black-faded-1);
+    background-color: var(--secondary-faded-1);
+    border: 1px solid var(--secondary-faded-3);
     border-radius: 10px;
     outline: none;
 
-    font-family: "satoshi-medium";
-    font-size: 14px;
-    color: var(--white);
+    color: var(--primary);
     cursor: pointer;
 }
 
-#backdrop .modal .navbar-themify .switch {
-    position: relative;
-    cursor: pointer;
-}
-
-#backdrop .modal .navbar-themify .switch.inactive .base {
-    position: relative;
-
-    width: 80px;
-    height: 40px;
-
-    background-color: var(--white);
-    border: 1px solid var(--black-faded-1);
-    border-radius: 100px;
-
-    transition-duration: 0.2s;
-}
-
-#backdrop .modal .navbar-themify .switch.inactive .handle {
-    position: absolute;
-
-    top: 4px;
-    left: 4px;
-
-    width: 30px;
-    height: 30px;
-
-    background-color: var(--black-faded-1);
-    border: 1px solid var(--black-faded-1);
-    border-radius: 100px;
-
-    transition-duration: 0.2s;
-}
-
-#backdrop .modal .navbar-themify .switch.active .base {
-    position: relative;
-
-    width: 80px;
-    height: 40px;
-
-    background-color: var(--pinot);
-    border: 1px solid var(--black-faded-1);
-    border-radius: 100px;
-
-    transition-duration: 0.2s;
-
-}
-
-#backdrop .modal .navbar-themify .switch.active .handle {
-    position: absolute;
-
-    top: 4px;
-    left: 44px;
-
-    width: 30px;
-    height: 30px;
-
-    background-color: var(--white);
-    border: 1px solid var(--black-faded-1);
-    border-radius: 100px;
-
+#backdrop .modal .navbar-network-manager .custom .form .submit:disabled {
+    background-color: var(--primary-faded-3);
+    border: 1px solid var(--primary-faded-2);
+    color: var(--primary);
+    cursor: not-allowed;
     transition-duration: 0.2s;
 
 }

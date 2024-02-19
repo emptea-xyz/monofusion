@@ -2,12 +2,13 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 import CreateSingleAttributeAdder from "./createSingleAttributeAdder/Modal";
 import WalletConnector from "./walletConnector/Modal";
 import NetworkManager from "./networkManager/Modal";
 import ThemeSelector from "./themeSelector/Modal";
 import "./backdrop.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 /* 
 BACKDROP GUIDE
@@ -25,12 +26,13 @@ BACKDROP GUIDE
  * @param {Function} resetModal - Resets the Modal ID to 0, which is the default state.
  */
 
-export default function Backdrop({ modal, setModal, resetModal }) {
+export default function Backdrop({ modal, setModal, resetModal, theme }) {
   return (
     <AnimatePresence>
       {modal != 0 && (
         //backdrop component. Blurs out the background to give a better contrast towards the modal.
         <motion.div
+          data-theme={theme == 0 ? "light" : "dark"}
           className="backdrop"
           id="backdrop"
           onClick={resetModal}
@@ -79,6 +81,11 @@ export default function Backdrop({ modal, setModal, resetModal }) {
               />
             )}
           </motion.div>
+
+          {/* Button with x symbol */}
+          <button onClick={resetModal} className="close-button">
+            <FontAwesomeIcon icon={faX} />
+          </button>
         </motion.div>
       )}
     </AnimatePresence>
