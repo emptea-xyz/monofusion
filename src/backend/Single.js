@@ -7,7 +7,7 @@ import {
   TransactionInstruction,
 } from "@solana/web3.js";
 import { clusterApiUrl } from "@solana/web3.js";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 import * as anchor from "@project-serum/anchor";
 import { ShdwDrive } from "@shadow-drive/sdk";
@@ -16,15 +16,15 @@ import { ShdwDrive } from "@shadow-drive/sdk";
  * Creates a new Metaplex Standard NFT (Non-Fungible Token).
  * @returns {Promise<string>} The signature of the transaction.
  */
-export async function createStandardNFT() {
+export async function createStandardNFT(connection, wallet) {
   //hooks
   const [file, setFile] = useState(
     new File(["Max Mustermann"], "muster.txt", { type: "text/plain" })
   );
 
   //Initialize components.
-  const { connection } = useConnection();
-  const wallet = useWallet();
+  const connection= connection;
+  const wallet = wallet;
   //shadow drive
   const drive = await new ShdwDrive(connection, wallet).init();
   //create a shadow account

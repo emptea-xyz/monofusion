@@ -28,7 +28,8 @@ export default function RootLayout({ children }) {
   const network = WalletAdapterNetwork.Devnet;
 
   // You can also provide a custom RPC endpoint
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const endpoint =
+    "https://devnet.helius-rpc.com/?api-key=78ae452a-d1dc-44ae-9b6c-fb9c7135f4e6";
 
   const wallets = useMemo(
     () => [
