@@ -104,7 +104,7 @@ export default function Home() {
         {/** Based on the state of the panel-hook, one of these panels  will be displayed */}
         {panel == 2 && <Profile setModal={setModal} />}
         {panel == 1 && <Leaderboad setModal={setModal} />}
-        {panel == 0 && <Create setModal={setModal} />}
+        {panel == 0 && <Create setModal={setModal} resetModal={resetModal} />}
       </motion.div>
       {/** Modal component, which behaves differently based on the modal-hook*/}
       <Backdrop
