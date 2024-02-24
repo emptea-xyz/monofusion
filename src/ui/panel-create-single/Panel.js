@@ -1,15 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+//
+import { Connection } from "@solana/web3.js";
+//
+import { useWallet } from "@solana/wallet-adapter-react";
+//
+import { ShdwDrive } from "@shadow-drive/sdk";
+import { WebIrys } from "@irys/sdk";
+
+import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
+import {
+  IrysUploader,
+  irysUploader,
+} from "@metaplex-foundation/umi-uploader-irys";
+
 import "./panel.css";
 
 /**
  * The create-single panel. Used to create a single NFT.
  * @param {Function} setModal - Function, which changes the ID of the Modal.
  */
-export default function Panel() {
+export default function Panel({ rpc, setRpc }) {
+  const wallet = useWallet();
   //sets the type of NFT (NFT, cNFT, pNFT).
   const [type, setType] = useState(0);
   //sets the title of NFT.
@@ -27,6 +42,19 @@ export default function Panel() {
   const [value, setValue] = useState("");
 
   const [attributesKey, setAttributesKey] = useState("");
+
+
+  /**
+   * sourced from: https://docs.irys.xyz/developer-docs/irys-sdk/irys-in-the-browser
+   */
+  const getIrys = () => {
+    const webIrys = new WebIrys({
+      url: "https://devnet.irys.xyz",
+      token: "solana",
+      wallet,
+    });
+    return webIrys;
+  };
 
   // a function to toggle the modal state
   const resetModal = () => {
@@ -69,6 +97,38 @@ export default function Panel() {
     const oldArray = attributes;
     oldArray.splice(index, 1);
     console.log(oldArray);
+  };
+
+  /**
+   * Creates a new Metaplex Standard NFT (Non-Fungible Token).
+   * @returns {Promise<string>} The signature of the transaction.
+   */
+  const createStandardNFT = async () => {};
+
+  /**
+   * Creates a new Metaplex Standard NFT (Non-Fungible Token).
+   * @returns {Promise<string>} The signature of the transaction.
+   */
+  const createNFT = async () => {
+    if (wallet.connected) {
+      try {
+        const file = new File(["Max Mustermann"], "muster.txt", {
+          type: "text/plain",
+        });
+        const connection = new Connection(rpc, "confirmed");
+
+        //initialize webIrys
+        const webIrys = getIrys();
+        await webIrys.ready();
+        webIrys.uploadFile(file).then((result) => {
+          console.log(result.public);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("Wallet not connected.");
+    }
   };
 
   return (
@@ -131,7 +191,6 @@ export default function Panel() {
                   setDescription(e.target.value);
                 }}
               />
-              <motion.div className="attributes"></motion.div>
               <motion.div
                 className="attributes-button font-text-bold"
                 onClick={() => {
@@ -165,7 +224,14 @@ export default function Panel() {
                   }}
                 />
               </motion.div>
-              <motion.div className="submit font-text-bold">create</motion.div>
+              <motion.div
+                className="submit font-text-bold"
+                onClick={() => {
+                  createNFT();
+                }}
+              >
+                create
+              </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>

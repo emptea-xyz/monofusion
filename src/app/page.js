@@ -4,7 +4,7 @@ import Navbar from "@/ui/navbar/Navbar";
 import Create from "@/ui/panel-create-single/Panel";
 import Leaderboad from "@/ui/panel-leaderboard/Panel";
 import Profile from "@/ui/panel-profile/Panel";
-import { useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 /**
@@ -20,6 +20,10 @@ export default function Home() {
   const [panel, setPanel] = useState(0);
   //Hook, which defines the theme of the platform
   const [theme, setTheme] = useState(0);
+  //Hook, which defines the rpc
+  const [rpc, setRpc] = useState(
+    "https://devnet.helius-rpc.com/?api-key=ad647ad0-4290-4093-888a-1b83b180e69f"
+  );
 
   //Function to toggle between the boolean state of "Option".
   const toggleOption = () => {
@@ -102,9 +106,13 @@ export default function Home() {
           )}
         </AnimatePresence>
         {/** Based on the state of the panel-hook, one of these panels  will be displayed */}
-        {panel == 2 && <Profile setModal={setModal} />}
-        {panel == 1 && <Leaderboad setModal={setModal} />}
-        {panel == 0 && <Create setModal={setModal} resetModal={resetModal} />}
+        {panel == 2 && (
+          <Profile setModal={setModal} rpc={rpc} setRpc={setRpc} />
+        )}
+        {panel == 1 && (
+          <Leaderboad setModal={setModal} rpc={rpc} setRpc={setRpc} />
+        )}
+        {panel == 0 && <Create rpc={rpc} setRpc={setRpc} />}
       </motion.div>
       {/** Modal component, which behaves differently based on the modal-hook*/}
       <Backdrop

@@ -25,11 +25,11 @@ import { clusterApiUrl } from "@solana/web3.js";
  */
 export default function RootLayout({ children }) {
   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
-  const network = WalletAdapterNetwork.Devnet;
+  const network =
+    "https://devnet.helius-rpc.com/?api-key=ad647ad0-4290-4093-888a-1b83b180e69f";
 
   // You can also provide a custom RPC endpoint
-  const endpoint =
-    "https://devnet.helius-rpc.com/?api-key=78ae452a-d1dc-44ae-9b6c-fb9c7135f4e6";
+  const endpoint = useMemo(() => network, [network]);
 
   const wallets = useMemo(
     () => [
