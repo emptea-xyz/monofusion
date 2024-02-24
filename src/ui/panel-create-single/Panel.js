@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,15 +6,14 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { Connection } from "@solana/web3.js";
 //
 import { useWallet } from "@solana/wallet-adapter-react";
+import { walletAdapterIdentity } from "@metaplex-foundation/umi-signer-wallet-adapters";
 //
 import { ShdwDrive } from "@shadow-drive/sdk";
 import { WebIrys } from "@irys/sdk";
-
+//
+import { createGenericFile } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
-import {
-  IrysUploader,
-  irysUploader,
-} from "@metaplex-foundation/umi-uploader-irys";
+import { irysUploader } from "@metaplex-foundation/umi-uploader-irys";
 
 import "./panel.css";
 
@@ -32,7 +30,7 @@ export default function Panel({ rpc, setRpc }) {
   //sets the description of NFT.
   const [description, setDescription] = useState("-");
   //sets the image-url of NFT.
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(new File([""], "filename"));
   //sets the title of NFT.
   const [attributes, setAttributes] = useState([]);
 
@@ -42,7 +40,6 @@ export default function Panel({ rpc, setRpc }) {
   const [value, setValue] = useState("");
 
   const [attributesKey, setAttributesKey] = useState("");
-
 
   /**
    * sourced from: https://docs.irys.xyz/developer-docs/irys-sdk/irys-in-the-browser
@@ -60,6 +57,7 @@ export default function Panel({ rpc, setRpc }) {
   const resetModal = () => {
     setModal(0);
   };
+
   // a function, which takes a file-input and checks if this file is an png and if this image is in square format.
   const checkImage = (input) => {
     if (input != undefined) {
@@ -92,6 +90,7 @@ export default function Panel({ rpc, setRpc }) {
       return false; // Return undefined if input is not defined
     }
   };
+
   //a function called, which pops an item in the array of attributes at a given index and sets the new array of attributes
   const removeAttribute = (index) => {
     const oldArray = attributes;
@@ -102,27 +101,23 @@ export default function Panel({ rpc, setRpc }) {
   /**
    * Creates a new Metaplex Standard NFT (Non-Fungible Token).
    * @returns {Promise<string>} The signature of the transaction.
-   */
-  const createStandardNFT = async () => {};
-
-  /**
-   * Creates a new Metaplex Standard NFT (Non-Fungible Token).
-   * @returns {Promise<string>} The signature of the transaction.
+   * sourced from: https://github.com/256hax/solana-anchor-react-minimal-example/blob/f01c520c7586ef3d5d71f577e55f1e9cc20278ae/scripts/metaplex/umi/src/irysUploader.ts#L44
    */
   const createNFT = async () => {
     if (wallet.connected) {
       try {
-        const file = new File(["Max Mustermann"], "muster.txt", {
-          type: "text/plain",
-        });
-        const connection = new Connection(rpc, "confirmed");
+        const umi = createUmi(rpc);
+        umi.use(irysUploader());
+        umi.use(walletAdapterIdentity(wallet));
 
-        //initialize webIrys
-        const webIrys = getIrys();
-        await webIrys.ready();
-        webIrys.uploadFile(file).then((result) => {
-          console.log(result.public);
+        const fileBuffer = image.arrayBuffer();
+        const file = createGenericFile(fileBuffer, "image.jpg", {
+          contentType: "image/png",
         });
+
+        const uploadPrice = await umi.uploader.getUploadPrice([file]);
+        const [fileUri] = await umi.uploader.upload([file]);
+        console.log(imageUri);
       } catch (e) {
         console.log(e);
       }
