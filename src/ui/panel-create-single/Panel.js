@@ -22,23 +22,20 @@ import "./panel.css";
  */
 export default function Panel({ rpc, setRpc }) {
   const wallet = useWallet();
-  //sets the type of NFT (NFT, cNFT, pNFT).
-  const [type, setType] = useState(0);
-  //sets the title of NFT.
-  const [title, setTitle] = useState("");
-  //sets the description of NFT.
-  const [description, setDescription] = useState("");
-  //sets the image-url of NFT.
-  const [image, setImage] = useState();
-  //sets the title of NFT.
-  const [attributes, setAttributes] = useState([]);
+  //
+  const [type, setType] = useState(0); //sets the type of NFT (NFT, cNFT, pNFT).
+  //
+  const [title, setTitle] = useState(""); //sets the title of NFT.
+  const [description, setDescription] = useState(""); //sets the description of NFT.
+  const [image, setImage] = useState(); //sets the image-url of NFT.
+  const [imagePreview, setImagePreview] = useState(); //sets the image-preview of NFT.
+  //
+  const [modal, setModal] = useState(0); //sets the state pf the attributes-modal.
+  const [attributes, setAttributes] = useState([]); //sets the title of NFT.
+  const [attributesKey, setAttributesKey] = useState(""); //a key to force the re-render of the attributes.
+  const [key, setKey] = useState(""); //sets the key of the attribute to be created.
+  const [value, setValue] = useState(""); //sets the value of the attribute to be created.
 
-  const [modal, setModal] = useState(0);
-  //hooks to store the key and value of the attributes
-  const [key, setKey] = useState("");
-  const [value, setValue] = useState("");
-
-  const [attributesKey, setAttributesKey] = useState("");
   /**sourced from: https://docs.irys.xyz/developer-docs/irys-sdk/irys-in-the-browser*/
   const getIrys = () => {
     const url = "https://devnet.irys.xyz";
@@ -72,6 +69,7 @@ export default function Panel({ rpc, setRpc }) {
               // Check if image is square
               setImage(input); // Set the image if it meets the criteria
               console.log("match!");
+              setImagePreview([reader.result]);
               return true; // Return the image if it meets the criteria
             } else {
               console.log("not square");
@@ -205,7 +203,7 @@ export default function Panel({ rpc, setRpc }) {
                 }}
               >
                 {image ? (
-                  <NextImage src={image} />
+                  <NextImage src={imagePreview} />
                 ) : (
                   <div className="placeholder font-text-small">
                     click here to import an image

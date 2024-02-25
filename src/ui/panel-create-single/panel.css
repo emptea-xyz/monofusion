@@ -228,7 +228,6 @@
   background-color: var(--primary-faded-3);
   color: var(--primary-faded-1);
   cursor: not-allowed;
-  pointer-events: none;
 }
 
 #backdrop .attributes {
