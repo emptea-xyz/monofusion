@@ -224,6 +224,13 @@
   transition-duration: 0.2s;
 }
 
+.main .panel.create .preview .submit:disabled {
+  background-color: var(--primary-faded-3);
+  color: var(--primary-faded-1);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 #backdrop .attributes {
   display: flex;
   align-items: center;

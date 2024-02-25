@@ -1,22 +1,19 @@
 "use client";
+import NextImage from "next/image";
+
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 //
-import { Connection } from "@solana/web3.js";
-//
 import { useWallet } from "@solana/wallet-adapter-react";
-//
-import { ShdwDrive } from "@shadow-drive/sdk";
 import { WebIrys } from "@irys/sdk";
-
+//
+import { createGenericFile } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
-import {
-  IrysUploader,
-  irysUploader,
-} from "@metaplex-foundation/umi-uploader-irys";
-
+import { irysUploader } from "@metaplex-foundation/umi-uploader-irys";
+import { walletAdapterIdentity } from "@metaplex-foundation/umi-signer-wallet-adapters";
+//
 import "./panel.css";
 
 /**
@@ -28,9 +25,9 @@ export default function Panel({ rpc, setRpc }) {
   //sets the type of NFT (NFT, cNFT, pNFT).
   const [type, setType] = useState(0);
   //sets the title of NFT.
-  const [title, setTitle] = useState("-");
+  const [title, setTitle] = useState("");
   //sets the description of NFT.
-  const [description, setDescription] = useState("-");
+  const [description, setDescription] = useState("");
   //sets the image-url of NFT.
   const [image, setImage] = useState();
   //sets the title of NFT.
@@ -42,17 +39,17 @@ export default function Panel({ rpc, setRpc }) {
   const [value, setValue] = useState("");
 
   const [attributesKey, setAttributesKey] = useState("");
-
-
-  /**
-   * sourced from: https://docs.irys.xyz/developer-docs/irys-sdk/irys-in-the-browser
-   */
+  /**sourced from: https://docs.irys.xyz/developer-docs/irys-sdk/irys-in-the-browser*/
   const getIrys = () => {
-    const webIrys = new WebIrys({
-      url: "https://devnet.irys.xyz",
-      token: "solana",
-      wallet,
-    });
+    const url = "https://devnet.irys.xyz";
+    const token = "solana";
+    const irysWallet = {
+      rpcUrl: rpc,
+      name: token,
+      provider: wallet.publicKey.toBase58(),
+    };
+    const webIrys = new WebIrys({ url, token, irysWallet });
+
     return webIrys;
   };
 
@@ -103,28 +100,25 @@ export default function Panel({ rpc, setRpc }) {
    * Creates a new Metaplex Standard NFT (Non-Fungible Token).
    * @returns {Promise<string>} The signature of the transaction.
    */
-  const createStandardNFT = async () => {};
-
-  /**
-   * Creates a new Metaplex Standard NFT (Non-Fungible Token).
-   * @returns {Promise<string>} The signature of the transaction.
-   */
   const createNFT = async () => {
     if (wallet.connected) {
       try {
-        const file = new File(["Max Mustermann"], "muster.txt", {
-          type: "text/plain",
+        const raw = image;
+        const buffer = await raw.arrayBuffer();
+        const file = createGenericFile(buffer, "nft-image.png", {
+          contentType: "image/png",
         });
-        const connection = new Connection(rpc, "confirmed");
-
-        //initialize webIrys
-        const webIrys = getIrys();
-        await webIrys.ready();
-        webIrys.uploadFile(file).then((result) => {
-          console.log(result.public);
-        });
+        const umi = createUmi(rpc);
+        umi.use(irysUploader());
+        umi.use(walletAdapterIdentity(wallet));
+        //
+        const [imageUri] = await umi.uploader.upload([file]);
+        console.log("--------------------------");
+        console.log("URL: " + imageUri);
       } catch (e) {
+        console.log("--------------------------");
         console.log(e);
+        console.log("--------------------------");
       }
     } else {
       console.log("Wallet not connected.");
@@ -210,9 +204,13 @@ export default function Panel({ rpc, setRpc }) {
                   document.getElementById("image-input").click();
                 }}
               >
-                <div className="placeholder font-text-small">
-                  click here to import an image
-                </div>
+                {image ? (
+                  <NextImage src={image} />
+                ) : (
+                  <div className="placeholder font-text-small">
+                    click here to import an image
+                  </div>
+                )}
                 <input
                   type="file"
                   name="cover"
@@ -224,14 +222,15 @@ export default function Panel({ rpc, setRpc }) {
                   }}
                 />
               </motion.div>
-              <motion.div
+              <button
                 className="submit font-text-bold"
+                disabled={!title || !description || !image}
                 onClick={() => {
                   createNFT();
                 }}
               >
                 create
-              </motion.div>
+              </button>
             </motion.div>
           </motion.div>
         </motion.div>
