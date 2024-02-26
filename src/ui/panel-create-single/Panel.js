@@ -9,12 +9,27 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WebIrys } from "@irys/sdk";
 //
-import { createGenericFile } from "@metaplex-foundation/umi";
+import {
+  createGenericFile,
+  createSignerFromKeypair,
+  generateSigner,
+  percentAmount,
+} from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import { irysUploader } from "@metaplex-foundation/umi-uploader-irys";
-import { walletAdapterIdentity } from "@metaplex-foundation/umi-signer-wallet-adapters";
+import {
+  createSignerFromWalletAdapter,
+  walletAdapterIdentity,
+} from "@metaplex-foundation/umi-signer-wallet-adapters";
 //
 import "./panel.css";
+import {
+  TokenStandard,
+  createV1,
+  findMetadataPda,
+  mintV1,
+  mplTokenMetadata,
+} from "@metaplex-foundation/mpl-token-metadata";
 
 /**
  * The create-single panel. Used to create a single NFT.
@@ -107,16 +122,68 @@ export default function Panel({ rpc, setRpc }) {
           contentType: "image/png",
         });
         const umi = createUmi(rpc);
+        irysUploader().install(umi);
         umi.use(irysUploader());
+        umi.use(mplTokenMetadata());
         umi.use(walletAdapterIdentity(wallet));
-        //
+        // upload the image to the irys network
         const [imageUri] = await umi.uploader.upload([file]);
         console.log("--------------------------");
         console.log("URL: " + imageUri);
+
+        //generate metadata
+        const metadata = {
+          name: title,
+          description: description,
+          symbol: "TEA",
+          image: imageUri,
+          external_url: "https://emptea.xyz",
+          attributes: attributes,
+          properties: {
+            files: [
+              {
+                uri: imageUri,
+                type: "image/png",
+              },
+            ],
+          },
+        };
+        const metadataBlob = new Blob([JSON.stringify(metadata)], {
+          type: "application/json",
+        });
+        const metadataFile = createGenericFile(metadata, "metadata.json", {
+          contentType: "application/json",
+        });
+        const metadataUrl = await umi.uploader.uploadJson([metadata]);
+        console.log("Metadata: " + metadataUrl);
+        //
+        await wallet.connect();
+        const mint = generateSigner(umi);
+        const metadataPda = findMetadataPda(umi, { mint: mint.publicKey });
+
+        const tx = createV1(umi, {
+          metadataUrl,
+          uri: metadataUrl,
+          mint: mint,
+          name: title,
+          metadata: metadataPda,
+          sellerFeeBasisPoints: percentAmount(5.5),
+          tokenStandard: TokenStandard.NonFungible,
+        });
+
+        const result = await tx.sendAndConfirm(umi);
+        console.log("Signature: " + result.signature.toString());
+
+        const mintresult = await mintV1(umi, {
+          mint: mint.publicKey,
+          amount: 1,
+          tokenStandard: TokenStandard.NonFungible,
+        }).sendAndConfirm(umi);
+
+        console.log("Resultat: "+mintresult.signature.toString());
       } catch (e) {
         console.log("--------------------------");
         console.log(e);
-        console.log("--------------------------");
       }
     } else {
       console.log("Wallet not connected.");
@@ -203,7 +270,7 @@ export default function Panel({ rpc, setRpc }) {
                 }}
               >
                 {image ? (
-                  <NextImage src={imagePreview} />
+                  <img src={imagePreview} />
                 ) : (
                   <div className="placeholder font-text-small">
                     click here to import an image
@@ -265,7 +332,9 @@ export default function Panel({ rpc, setRpc }) {
                       setAttributesKey(attributesKey + 1);
                     }}
                   >
-                    <div className="key font-text-bold">{attribute.key}</div>
+                    <div className="key font-text-bold">
+                      {attribute.trait_type}
+                    </div>
 
                     <div className="line"></div>
                     <div className="value font-text-light">
@@ -315,7 +384,7 @@ export default function Panel({ rpc, setRpc }) {
                     onClick={() => {
                       setAttributes([
                         ...attributes,
-                        { key: key, value: value },
+                        { trait_type: key, value: value },
                       ]);
                     }}
                   >

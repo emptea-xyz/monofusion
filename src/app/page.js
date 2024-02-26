@@ -22,7 +22,7 @@ export default function Home() {
   const [theme, setTheme] = useState(0);
   //Hook, which defines the rpc
   const [rpc, setRpc] = useState(
-    "https://devnet.helius-rpc.com/?api-key=ad647ad0-4290-4093-888a-1b83b180e69f"
+    "https://devnet.helius-rpc.com/?api-key=5d69c879-36f4-4acf-87b4-e44a64c07acc"
   );
 
   //Function to toggle between the boolean state of "Option".

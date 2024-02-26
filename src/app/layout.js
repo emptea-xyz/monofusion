@@ -26,7 +26,7 @@ import { clusterApiUrl } from "@solana/web3.js";
 export default function RootLayout({ children }) {
   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
   const network =
-    "https://devnet.helius-rpc.com/?api-key=ad647ad0-4290-4093-888a-1b83b180e69f";
+    "https://devnet.helius-rpc.com/?api-key=5d69c879-36f4-4acf-87b4-e44a64c07acc";
 
   // You can also provide a custom RPC endpoint
   const endpoint = useMemo(() => network, [network]);
