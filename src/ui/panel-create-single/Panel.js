@@ -11,25 +11,17 @@ import { WebIrys } from "@irys/sdk";
 //
 import {
   createGenericFile,
-  createSignerFromKeypair,
   generateSigner,
   percentAmount,
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import { irysUploader } from "@metaplex-foundation/umi-uploader-irys";
-import {
-  createSignerFromWalletAdapter,
-  walletAdapterIdentity,
-} from "@metaplex-foundation/umi-signer-wallet-adapters";
+import { walletAdapterIdentity as empteasUmiAdapter } from "@metaplex-foundation/umi-signer-wallet-adapters";
 //
 import "./panel.css";
-import {
-  TokenStandard,
-  createV1,
-  findMetadataPda,
-  mintV1,
-  mplTokenMetadata,
-} from "@metaplex-foundation/mpl-token-metadata";
+import { mplTokenMetadata } from "@metaplex-foundation/mpl-token-metadata";
+import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js";
+import { Connection } from "@solana/web3.js";
 
 /**
  * The create-single panel. Used to create a single NFT.
@@ -37,6 +29,8 @@ import {
  */
 export default function Panel({ rpc, setRpc }) {
   const wallet = useWallet();
+  const metaplex = new Metaplex(new Connection(rpc));
+  metaplex.use(walletAdapterIdentity(wallet));
   //
   const [type, setType] = useState(0); //sets the type of NFT (NFT, cNFT, pNFT).
   //
@@ -50,20 +44,6 @@ export default function Panel({ rpc, setRpc }) {
   const [attributesKey, setAttributesKey] = useState(""); //a key to force the re-render of the attributes.
   const [key, setKey] = useState(""); //sets the key of the attribute to be created.
   const [value, setValue] = useState(""); //sets the value of the attribute to be created.
-
-  /**sourced from: https://docs.irys.xyz/developer-docs/irys-sdk/irys-in-the-browser*/
-  const getIrys = () => {
-    const url = "https://devnet.irys.xyz";
-    const token = "solana";
-    const irysWallet = {
-      rpcUrl: rpc,
-      name: token,
-      provider: wallet.publicKey.toBase58(),
-    };
-    const webIrys = new WebIrys({ url, token, irysWallet });
-
-    return webIrys;
-  };
 
   // a function to toggle the modal state
   const resetModal = () => {
@@ -125,7 +105,7 @@ export default function Panel({ rpc, setRpc }) {
         irysUploader().install(umi);
         umi.use(irysUploader());
         umi.use(mplTokenMetadata());
-        umi.use(walletAdapterIdentity(wallet));
+        umi.use(empteasUmiAdapter(wallet));
         // upload the image to the irys network
         const [imageUri] = await umi.uploader.upload([file]);
         console.log("--------------------------");
@@ -157,30 +137,16 @@ export default function Panel({ rpc, setRpc }) {
         const metadataUrl = await umi.uploader.uploadJson([metadata]);
         console.log("Metadata: " + metadataUrl);
         //
-        await wallet.connect();
-        const mint = generateSigner(umi);
-        const metadataPda = findMetadataPda(umi, { mint: mint.publicKey });
-
-        const tx = createV1(umi, {
-          metadataUrl,
-          uri: metadataUrl,
-          mint: mint,
-          name: title,
-          metadata: metadataPda,
-          sellerFeeBasisPoints: percentAmount(5.5),
-          tokenStandard: TokenStandard.NonFungible,
-        });
-
-        const result = await tx.sendAndConfirm(umi);
-        console.log("Signature: " + result.signature.toString());
-
-        const mintresult = await mintV1(umi, {
-          mint: mint.publicKey,
-          amount: 1,
-          tokenStandard: TokenStandard.NonFungible,
-        }).sendAndConfirm(umi);
-
-        console.log("Resultat: "+mintresult.signature.toString());
+        await metaplex.nfts().create(
+          {
+            uri: metadataUrl,
+            name: title,
+            symbol: "TEA",
+            sellerFeeBasisPoints: 500,
+          },
+          { commitment: "finalized" }
+        );
+        console.log("NFT created.");
       } catch (e) {
         console.log("--------------------------");
         console.log(e);
